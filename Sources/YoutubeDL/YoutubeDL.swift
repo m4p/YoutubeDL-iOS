@@ -1000,7 +1000,7 @@ public class YtDlp {
             .pythonObject()
     }
 
-    func makeYoutubeDL(ydlOpts: PythonObject) -> PythonObject {
+    public func makeYoutubeDL(ydlOpts: PythonObject) -> PythonObject {
         yt_dlp.YoutubeDL(ydlOpts)
     }
 }
