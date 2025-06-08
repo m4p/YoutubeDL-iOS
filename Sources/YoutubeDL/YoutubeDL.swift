@@ -331,37 +331,19 @@ open class YoutubeDL: NSObject {
     lazy var popenHandler = PythonFunction { args in
         print(#function, args)
         let popen = args[0]
-        var result = Array<String?>(repeating: nil, count: 2)
-        if var args: [String] = Array(args[1][0]) {
-            // save standard out/error
-            let stdout = dup(STDOUT_FILENO)
-            let stderr = dup(STDERR_FILENO)
-            
-            // redirect standard out/error
-            let outPipe = Pipe()
-            let errPipe = Pipe()
-            dup2(outPipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
-            dup2(errPipe.fileHandleForWriting.fileDescriptor, STDERR_FILENO)
-            
+        let result = Array<String?>(repeating: nil, count: 2)
+
+        if let args: [String] = Array(args[1][0]) {
             let exitCode = self.handleFFmpeg(args: args)
-            
-            // restore standard out/error
-            dup2(stdout, STDOUT_FILENO)
-            dup2(stderr, STDERR_FILENO)
-            
             popen.returncode = PythonObject(exitCode)
-            
+
+            // Function to read output from pipes
             func read(pipe: Pipe) -> String? {
-                guard let string = String(data: pipe.fileHandleForReading.availableData, encoding: .utf8) else {
-                    print(#function, "not UTF-8?")
-                    return nil
-                }
-                print(#function, string)
-                return string
+                let data = pipe.fileHandleForReading.availableData
+                let output = String(data: data, encoding: .utf8)
+                return output
             }
-            
-            result[0] = read(pipe: outPipe)
-            result[1] = read(pipe: errPipe)
+
             return Python.tuple(result)
         }
         return Python.tuple(result)
