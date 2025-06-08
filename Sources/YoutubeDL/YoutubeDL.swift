@@ -948,7 +948,7 @@ public class YtDlp {
         }
     }
     
-    let yt_dlp: PythonObject
+    public let yt_dlp: PythonObject
     
     let context: Context
     
