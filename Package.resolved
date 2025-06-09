@@ -1,43 +1,24 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "FFmpeg-iOS-Lame",
-        "repositoryURL": "https://github.com/kewlbear/FFmpeg-iOS-Lame",
-        "state": {
-          "branch": null,
-          "revision": "c0b202a16a43933cb16bf9914c76e00f0d24d57e",
-          "version": "0.0.6-b20230416-200000"
-        }
-      },
-      {
-        "package": "FFmpeg-iOS-Support",
-        "repositoryURL": "https://github.com/kewlbear/FFmpeg-iOS-Support",
-        "state": {
-          "branch": null,
-          "revision": "60df9313af3a5869255b9654cd88eede4646295b",
-          "version": "0.0.1"
-        }
-      },
-      {
-        "package": "Python-iOS",
-        "repositoryURL": "https://github.com/kewlbear/Python-iOS.git",
-        "state": {
-          "branch": null,
-          "revision": "784b391aa25c765761998cacb2d1fd5c86014164",
-          "version": "0.1.1-b20230312-012746"
-        }
-      },
-      {
-        "package": "PythonKit",
-        "repositoryURL": "https://github.com/pvieito/PythonKit.git",
-        "state": {
-          "branch": null,
-          "revision": "81f621d094a7c8923207efe5178f50dba1b56c39",
-          "version": "0.3.1"
-        }
+  "originHash" : "d091d4eb25fc96675f178d9b5b0566cb948395fb0d78923cb5a34cb746d6ad7c",
+  "pins" : [
+    {
+      "identity" : "python-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/m4p/Python-iOS",
+      "state" : {
+        "branch" : "kivy-ios",
+        "revision" : "f0efaf32ec2506ed2654051e5ab3dd06d4e78c29"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "pythonkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pvieito/PythonKit.git",
+      "state" : {
+        "revision" : "81f621d094a7c8923207efe5178f50dba1b56c39",
+        "version" : "0.3.1"
+      }
+    }
+  ],
+  "version" : 3
 }

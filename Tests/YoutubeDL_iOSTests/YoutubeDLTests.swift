@@ -40,24 +40,6 @@ final class YoutubeDL_iOSTests: XCTestCase {
         XCTAssertGreaterThan(formats.count, 0)
     }
 
-    func testDownload() async throws {
-        let youtubeDL = YoutubeDL()
-        youtubeDL.downloader = Downloader(backgroundURLSessionIdentifier: nil)
-        isTest = true
-        let url = try await youtubeDL.download(url: URL(string: "https://www.youtube.com/watch?v=WdFj7fUnmC0")!)
-        print(#function, url)
-    }
-
-    func testDownloads() async throws {
-        let youtubeDL = YoutubeDL()
-        youtubeDL.downloader = Downloader(backgroundURLSessionIdentifier: nil)
-        isTest = true
-        var url = try await youtubeDL.download(url: URL(string: "https://www.youtube.com/watch?v=WdFj7fUnmC0")!)
-        print(#function, url)
-        url = try await youtubeDL.download(url: URL(string: "https://youtu.be/TaUuUDIg6no")!)
-        print(#function, url)
-    }
-
     func testError() async throws {
         let youtubeDL = YoutubeDL()
         do {
